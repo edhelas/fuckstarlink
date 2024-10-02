@@ -56,10 +56,11 @@
 server {
     ...
 
-    if ($starlink_user) {
-        rewrite ^ https://fuckstarlink.org/;
+    location = / {
+        if ($starlink_user) {
+            rewrite ^ https://fuckstarlink.org/;
+        }
     }
-
     ...
 }
     </pre>
