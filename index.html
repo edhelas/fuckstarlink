@@ -8,7 +8,9 @@
 <body>
     <h1>Fuck Starlink 🖕🛰️</h1>
 
-    <p>It seems that you accessed this website using Starlink or a similar mega-constellation network.</p>
+    <h2>Why this initiative?</h2>
+
+    <p>It seems that you accessed this website using Starlink or a similar mega-constellation network or that you are interested to know why the harm they are doing to our society and environment is bigger than the service they are giving to a few.</p>
 
     <p>We are not supporting the deployment of those mega-constellations to access the Internet:</p>
 
@@ -21,5 +23,46 @@
     </ul>
 
     <p>Our environnement, our climate and our sky is a common good that is too precious to be privatized to bring Internet acces for a few priviledges humans.</p>
+
+    <h2>I am using Starlink for [reasons] and I still want to have access to those blocked websites</h2>
+
+    <p>Use a VPN.</p>
+
+    <h2>How does it work?</h2>
+
+    <p>All the private companies running those mega-constellations own a few blocks of <a href="https://en.wikipedia.org/wiki/IP_address">IP (v4 and v6)</a> ranges, we are simply blocking those IPs and redirecting them to this website.</p>
+
+    <h2>I want to support the initiative</h2>
+
+    <p>You can contribute to the project on <a href="https://github.com/edhelas/fuckstarlink">Github</a> by improving the blocked IP lists or find new way to apply this list on services.</p>
+
+    <h2>How do I block Starlink & co myself?</h2>
+
+    <img src="img/mypart.webp">
+
+    <h3>I host websites on nginx</h3>
+
+    <p>Put the IP blocks file in your <code>/etc/nginx/conf.d/</code> directory.</p>
+    <p>Add the following code snippet to all the websites you want to block:</p>
+
+    <pre>
+server {
+    ...
+
+    if ($starlink_user) {
+        rewrite ^ https://movim.eu/fuckstarlink;
+    }
+
+    ...
+}
+    </pre>
+
+    <p>To be completed with other services...</p>
+
+    <footer>
+        <p>Fork <a href="https://github.com/edhelas/fuckstarlink">Fuck Starlink on Github</a></p>
+    </footer>
+
+
 </body>
 </html>
